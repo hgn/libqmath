@@ -7,6 +7,7 @@
 #define QMATH1616_MINIMUM ((qmath1616_t)0x80000000)
 
 #define QMATH1616_ONE ((qmath1616_t)0x00010000)
+#define QMATH1616_OVERFLOW ((qmath1616_t)0x80000000)
 
 #define QMATH1616_PI ((qmath1616_t)205887)
 #define QMATH1616_E ((qmath1616_t)178145)
@@ -14,6 +15,9 @@
 #define QMATH16_T(x) ((qmath1616_t)(((x) >= 0) ? ((x) * 65536.0 + 0.5) : ((x) * 65536.0 - 0.5)))
 
 typedef int32_t qmath1616_t;
+
+void fix16_to_str(qmath1616_t value, char *buf, int decimals);
+qmath1616_t fix16_from_str(const char *buf);
 
 
 static inline qmath1616_t qmath1616_from_int(int val)
